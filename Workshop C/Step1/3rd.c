@@ -13,8 +13,8 @@ int main()
 	//float Diametre, Perimetre, Surface;
 
 	//Les formules:
-	float P = (r * 2) * PI;
-	float D = P / PI;
+	float D = 2 * r;
+	float P = r * 2 * PI;
 	float S = PI * (r*r);
 
 	//Resultats:

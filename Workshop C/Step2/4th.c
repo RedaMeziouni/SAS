@@ -1,31 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
-
-int main(void)
+int main()
 
 {
-	float x1, x2, delta, a, b, c;
-	printf("Entrez les valeurs des: a, b, c \n");
-	scanf("%f %f %f",&a, &b, &c);
 
-	delta = (b*b)-(4*a*c);
+  printf("PGCD \n");
 
-	if (delta == 0.0)
-	{
-	x1 = -b /(2*a);
-	printf("la solution unique est xs = %.2f \n",x1);
-	}
-	if (delta > 0.0)
-	{
-	x1 = (-b - sqrt(delta))/(2*a);
-	x2 = (-b + sqrt(delta))/(2*a);
-	printf("les deux racines sont : x1 = %.2f et x2 = %.2f \n",x1, x2);
-	}
-	if (delta < 0.0)
+  //Declaration: 
+  int A, B, X, Y, RESTE;
 
-	printf("l'equation n admet pas de solution");
+  
+  //Donner la boucle:
+  do
+  {
+    printf("Entrez A (non null): "); 
+    scanf("%d",&A);
 
-	return 0;
+   }
+
+  while(!A);
+
+  do
+  {
+    printf("Entrez B (non null): ");
+    scanf("%d",&B);
+
+   }
+
+  while(!B);
+
+  for(RESTE=A,X = A, Y = B; RESTE ; X = Y, Y = RESTE)
+
+    printf("%d \n", RESTE=X % Y);
+
+  printf("Le pgcd de %d et %d est %d \n", A, B, X);
+
+    return 0;
+
 }

@@ -2,50 +2,45 @@
 #include <stdlib.h>
 #include <math.h>
 
-int main() 
-{ 
 
-  printf("Bonjour ! \n");
+int main(void)
 
-  //Calcul des solutions réelles et complexes d'une équation du second degré */ 
-  int A, B, C; 
+{
 
-  double D; /* Discriminant */ 
-  printf("Calcul des solutions réelles et complexes d'une équation du second degré \n"); 
-  printf("degré de la forme   ax^2 + bx + c = 0 \n\n"); 
-  printf("Introduisez les valeurs pour a, b, et c : "); 
-  scanf("%d %d %d", &A, &B, &C); 
+	printf("Calcul d'une equation de deuxieme degre\n");
+
+	//Declaration des variables: 
+	double x1, x2, delta, a, b, c;
+
+	//Demande des a, b, c:
+	printf("Entrez les valeurs de a, b, c \n");
+
+	printf("Donner la valeur de a: ");
+	scanf("%lf", &a);
+	printf("Donner la valeur de b: ");
+	scanf("%lf", &b);
+	printf("Donner la valeur de c: ");
+	scanf("%lf", &c);
+
+	//Definition de delta:
+	delta = (b*b)-(4*a*c);
 
 
- /* Calcul du discriminant b^2-4ac */ 
-  D = pow(B,2) - 4 * A * C; 
+	//Les conditions d'un equation de deuxieme degrée:
+	if (delta == 0.0)
+	{
+		x1 = -b /(2*a);
+		printf("la solution unique est xs = %.2f \n",x1);
+	}
+	if (delta > 0.0)
+	{
+		x1 = (-b - sqrt(delta))/(2*a);
+		x2 = (-b + sqrt(delta))/(2*a);
+		printf("les deux racines sont : x1 = %.2f et x2 = %.2f \n",x1, x2);
+	}
+	if (delta < 0.0);
 
- /* Distinction des différents cas */ 
-  if (A == 0 && B == 0 && C == 0) 
-    printf("Tout réel est une solution de cette équation.\n"); 
-  else if (A == 0 && B == 0) 
-    printf("Cette équation ne possède pas de solutions.\n"); 
-  else if (A == 0) 
-     { 
-       printf("La solution de cette équation du premier degré est :\n");  
-       printf(" x = %.4f\n", (double)C/B); 
-     } 
-  else if (D<0)  /* b^2-4ac < 0 */  
- {
-printf("Les solutions complexes de cette équation sont les suivantes :\n"); 
-  printf(”x1 = %.4f + i%.4f\n”, (double)(-B),(double)(sqrt(-D)/(2*A))) ;  
-  printf(”x2 = %.4f + i%.4f\n”, (double)(-B),(double)(-sqrt(-D)/(2*A))) ; 
- } 
-  else if (D==0) /* b^2-4ac = 0 */  
-     { 
-       printf("Cette équation a une seule solution réelle :\n"); 
-       printf(" x =  %.4f\n", (double)-B/(2*A)); 
-     } 
-  else /* b^2-4ac > 0 */  
-     {  
-       printf("Les solutions réelles de cette équation sont :\n"); 
-       printf(" x1 = %.4f\n", (double)(-B+sqrt(D))/(2*A)); 
-       printf(" x2 = %.4f\n", (double)(-B-sqrt(D))/(2*A)); 
-     } 
-   return 0; 
+		printf("l'equation n admet pas de solution \n");
+
+	return 0;
 }
